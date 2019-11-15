@@ -11,7 +11,7 @@ Run the following command:
 
 ## Examples
 
-CSS example:
+##### CSS pseudo-class example:
 
 ```jsx
 
@@ -63,7 +63,7 @@ function UnifiedComponent() {
 }
 ```
 
-CSS media query example:
+##### CSS media query example:
 
 ```jsx
 
