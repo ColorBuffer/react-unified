@@ -88,7 +88,7 @@ function WebComponent() {
     );
 }
 
-// after:
+// after ++++++++++++++++++++++++++++++++++
 import React from 'react';
 import {View, useDimensions} from 'react-unified';
 
