@@ -9,11 +9,15 @@ Run the following command:
 
 `react-native link react-native-gesture-handler`
 
-## Css
+## Examples
+
+CSS example:
 
 ```jsx
 
-// before:
+// before -------------------------------------
+import React from 'react';
+
 function WebComponent() {
 
     return (
@@ -36,14 +40,14 @@ function WebComponent() {
     );
 }
 
-// after:
+// after ++++++++++++++++++++++++++++++++++
 import React, {useRef} from 'react';
 import {View, useHover, useActive, useFocus} from 'react-unified';
 
 function UnifiedComponent() {
 
     const selectorRef = useRef(null);
-    
+
     const hover  = useHover(selectorRef);
     const active = useActive(selectorRef);
     const focus  = useFocus(selectorRef);
@@ -59,3 +63,47 @@ function UnifiedComponent() {
 }
 ```
 
+CSS media query example:
+
+```jsx
+
+// before -------------------------------------
+import React from 'react';
+
+function WebComponent() {
+
+    return (
+        <div id={'selector'}>
+            <style>
+                #selector {
+                    background-color: white;
+                }
+                @media only screen and (max-width: 768px) {
+                    #selector {
+                        background-color: blue;
+                    }
+                }
+            </style>
+        </div>
+    );
+}
+
+// after:
+import React from 'react';
+import {View, useDimensions} from 'react-unified';
+
+function UnifiedComponent() {
+
+    const dimensions = useDimensions();
+
+    return (
+        <View 
+            ref={selectorRef}
+            style={{
+                backgroundColor: dimensions.width <= 768 ? 'blue' : 'white',
+            }}
+        />
+    );
+}
+
+```
